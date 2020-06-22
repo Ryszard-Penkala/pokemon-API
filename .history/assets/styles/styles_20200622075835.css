@@ -4,14 +4,10 @@
     box-sizing: border-box;
 }
 
-.pokemon-app{
-    width: 800px;
-}
-
 .header-main{
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1 rem;
 }
 
 .header-mian__catalog{
