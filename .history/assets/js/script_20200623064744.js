@@ -4,7 +4,7 @@ class pokemonAPICatalog {
         this.API_VERSION= "v1";
         this.API_RESOURCE = "cards";
 
-        this.API_ENDPOINT = `${this.API}/${this.API_VERSION}/${this.API_RESOURCE}`;
+        this.API_ENDPOINT = `${this.API}/${this.API-VERSION}/${this.API_RESOURCE}`;
     }
     init(){
         console.log("zainicjowana klasa");
