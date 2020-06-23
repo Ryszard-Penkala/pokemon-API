@@ -12,7 +12,8 @@ class pokemonAPICatalog {
     }
 
     async pullCards(){
-        const { cards } = await this.fetchData(this.API_ENDPOINT)
+        const {cards} = await this.fetchData(this.API_ENDPOINT)
+        console.log(cards)
     }
 
 

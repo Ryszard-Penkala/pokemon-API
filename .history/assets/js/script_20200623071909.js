@@ -8,11 +8,11 @@ class pokemonAPICatalog {
     }
     init(){
         console.log("zainicjowana klasa");
-        this.pullCards();
+        console.log(this.pullCards());
     }
 
     async pullCards(){
-        const { cards } = await this.fetchData(this.API_ENDPOINT)
+        const {cards} = this.fetchData(this.API_ENDPOINT)
     }
 
 

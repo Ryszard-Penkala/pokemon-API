@@ -8,7 +8,7 @@ class pokemonAPICatalog {
     }
     init(){
         console.log("zainicjowana klasa");
-        this.pullCards();
+        console.log(this.pullCards());
     }
 
     async pullCards(){
