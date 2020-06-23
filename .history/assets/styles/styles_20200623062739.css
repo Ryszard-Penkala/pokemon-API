@@ -3,13 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-.body{
-    display: flex;
-}
 
 .pokemon-app{
     width: 1200px;
-    margin: auto;
+    display: flex;
+    background-color: blue;
 }
 
 .header-main{

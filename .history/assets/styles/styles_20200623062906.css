@@ -5,11 +5,11 @@
 }
 .body{
     display: flex;
+    justify-self: center;
 }
 
 .pokemon-app{
     width: 1200px;
-    margin: auto;
 }
 
 .header-main{
