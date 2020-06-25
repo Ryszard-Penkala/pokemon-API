@@ -1,4 +1,4 @@
-class pokemonAPICatalog {
+sclass pokemonAPICatalog {
     constructor() {
         this.catalog = null;
         this.cards = [];
@@ -41,27 +41,9 @@ class pokemonAPICatalog {
 
     drawCard(card){
         return(
-            `<span class="section-main__card">
-                <header class="card__header">
-                    <span class="card__name">${card.name}</span>
-                    <span class="card__id">${card.nationalPokedexNumber}</span>
-                </header>
+            `<article class="section-main__card">
                 <img src=${card.imageUrl} class="card__image">
-                <footer class=card_footer">
-                    <div class="card__supertype>
-                        <span class="card__supertype card--bold">Supertype : </span>
-                        ${card.supertype}
-                    </div>
-                    <div class="card__subtype>
-                        <span class="card__subtype card--bold">Subtype : </span>
-                        ${card.subtype}
-                    </div>
-                    <div class="card__rarity>
-                        <span class="card__rarity card--bold">Rarity : </span>
-                        ${card.rarity}
-                    </div>
-                </footer>
-            </span>`
+            </article>`
         )
     }
 }
