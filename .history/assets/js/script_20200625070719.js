@@ -10,19 +10,17 @@ class pokemonAPICatalog {
         this.API_ENDPOINT = `${this.API}/${this.API_VERSION}/${this.API_RESOURCE}`;
 
         this.UiSelectors = {
-            content : `[data-content]`
+            content : "[data-content]"
         }
     }
     init(){
         this.catalog = document.querySelector(this.UiSelectors.content);
-        this.pullCards();
-
+        this.addCards(this.cards);
     }
 
     async pullCards(){
         const { cards } = await this.fetchData(this.API_ENDPOINT)
         this.cards = [...cards];
-        this.addCards(this.cards);
     }
 
 
@@ -34,12 +32,8 @@ class pokemonAPICatalog {
     }
 
     addCards(cards){
-        this.cards.map(card => {
-            this.catalog.insertAdjacentHTML("beforeend", `<span> <img src=${card.imageUrl} </span>`)
+        cards.forEach(card => {
+            this.catalog.insertAdjacentHTML("beforeend", "<span><img src=card.imageUrl></span>")
         });
-
-        // this.catalog.innerHTML += [
-        //     cards.map((card) => `${card.name}`),
-        // ];
     }
 }

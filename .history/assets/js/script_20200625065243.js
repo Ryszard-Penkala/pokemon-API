@@ -9,20 +9,20 @@ class pokemonAPICatalog {
 
         this.API_ENDPOINT = `${this.API}/${this.API_VERSION}/${this.API_RESOURCE}`;
 
-        this.UiSelectors = {
-            content : `[data-content]`
+        this.UiSelectors {
+            content : "[data-content]";
         }
     }
     init(){
         this.catalog = document.querySelector(this.UiSelectors.content);
-        this.pullCards();
-
+        console.log("zainicjowana klasa");
+        let cards = this.pullCards();
+        this.addCards(cards);
     }
 
     async pullCards(){
         const { cards } = await this.fetchData(this.API_ENDPOINT)
         this.cards = [...cards];
-        this.addCards(this.cards);
     }
 
 
@@ -34,12 +34,6 @@ class pokemonAPICatalog {
     }
 
     addCards(cards){
-        this.cards.map(card => {
-            this.catalog.insertAdjacentHTML("beforeend", `<span> <img src=${card.imageUrl} </span>`)
-        });
 
-        // this.catalog.innerHTML += [
-        //     cards.map((card) => `${card.name}`),
-        // ];
     }
 }

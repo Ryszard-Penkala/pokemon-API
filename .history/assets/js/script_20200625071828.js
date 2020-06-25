@@ -15,7 +15,6 @@ class pokemonAPICatalog {
     }
     init(){
         this.catalog = document.querySelector(this.UiSelectors.content);
-        this.pullCards();
 
     }
 
@@ -34,12 +33,6 @@ class pokemonAPICatalog {
     }
 
     addCards(cards){
-        this.cards.map(card => {
-            this.catalog.insertAdjacentHTML("beforeend", `<span> <img src=${card.imageUrl} </span>`)
-        });
-
-        // this.catalog.innerHTML += [
-        //     cards.map((card) => `${card.name}`),
-        // ];
+        this.catalog.innerHTML += [cards.map((card) => `${card.name}`)]
     }
 }
