@@ -8,8 +8,8 @@
 }
 
 .pokemon-app{
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 1200px;
+    margin: auto;
 }
 
 .header-main{
@@ -28,6 +28,6 @@
 
 .section-main{
     display: grid;
-    grid-gap: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: minmax(250px , 1fr) 1fr 1fr 1fr;
+    column-gap: 10px;
 }
