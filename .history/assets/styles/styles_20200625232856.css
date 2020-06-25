@@ -5,7 +5,6 @@
 }
 .body{
     display: flex;
-    font-family: "Lato", sans-serif;
 }
 
 .pokemon-app{
@@ -47,10 +46,4 @@
 
 .card__image{
     width: 250px;
-}
-
-.card--bold{
-    font-weight: 700;
-    color: blue;
-    background-color: red;
 }

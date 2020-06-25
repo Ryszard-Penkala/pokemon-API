@@ -5,7 +5,6 @@
 }
 .body{
     display: flex;
-    font-family: "Lato", sans-serif;
 }
 
 .pokemon-app{
@@ -38,19 +37,12 @@
 .card__header{
     display: flex;
     justify-content: space-between;
-    line-height: 24px;
 }
 
 .card__name{
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .card__image{
     width: 250px;
-}
-
-.card--bold{
-    font-weight: 700;
-    color: blue;
-    background-color: red;
 }
