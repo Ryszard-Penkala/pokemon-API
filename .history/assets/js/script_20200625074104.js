@@ -35,7 +35,7 @@ class pokemonAPICatalog {
 
     addCards(cards){
         this.cards.map(card => {
-            this.catalog.insertAdjacentHTML("beforeend", `<span class="section-main__card"><img src=${card.imageUrl} class="card__image"> </span>`)
+            this.catalog.insertAdjacentHTML("beforeend", `<span class="section-main__card"><img src=${card.imageUrl} class="card__image> </span>`)
         });
     }
 }
