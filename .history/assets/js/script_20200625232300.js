@@ -44,7 +44,7 @@ class pokemonAPICatalog {
             `<span class="section-main__card">
                 <header class="card__header">
                     <span class="card__name">${card.name}</span>
-                    <span class="card__id">Nr: ${card.number}</span>
+                    <span class="card__id">Nr: ${card.nationalPokedexNumber}</span>
                 </header>
                 <img src=${card.imageUrl} class="card__image">
                 <footer class=card_footer">
