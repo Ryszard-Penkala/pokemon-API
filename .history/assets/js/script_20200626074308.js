@@ -47,17 +47,17 @@ class pokemonAPICatalog {
                     <span class="card__id">Nr: ${card.number}</span>
                 </header>
                 <img src=${card.imageUrl} class="card__image">
-                <footer class="card_footer">
-                    <div class="card__supertype">
+                <footer class=card_footer">
+                    <div class="card__supertype>
                         <span class="card__supertype card--bold">Supertype : </span>
                         ${card.supertype}
                     </div>
-                    <div class="card__subtype">
+                    <div class="card__subtype>
                         <span class="card__subtype card--bold">Subtype : </span>
                         ${card.subtype}
                     </div>
-                    <div class="card__rarity">
-                        <span class="card__rarity card--bold">Rarity : </span>
+                    <div class="card__rarity>
+                        <span class="bold">Rarity : </span>
                         ${card.rarity}
                     </div>
                 </footer>

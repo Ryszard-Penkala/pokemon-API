@@ -16,7 +16,7 @@
 .header-main{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .header-mian__catalog{
@@ -49,6 +49,8 @@
     width: 250px;
 }
 
-.card--bold{
+.card__rarity{
     font-weight: 700;
+    color: blue;
+    background: red;
 }
