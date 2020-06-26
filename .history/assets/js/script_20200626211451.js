@@ -2,15 +2,12 @@ class pokemonAPICatalog {
     constructor() {
         this.catalog = null;
         this.cards = [];
-        this.page = 1;
 
         this.API = "https://api.pokemontcg.io";
         this.API_VERSION= "v1";
         this.API_RESOURCE = "cards?pageSize=4&page=2";
-        this.API_PAGE_SIZE = "pageSize=4"
-        this.API_PAGE = "page="
 
-        this.API_ENDPOINT = `${this.API}/${this.API_VERSION}/${this.API_RESOURCE}?${this.API_PAGE_SIZE}&${this.API_PAGE}${this.page}`;
+        this.API_ENDPOINT = `${this.API}/${this.API_VERSION}/${this.API_RESOURCE}`;
 
         this.UiSelectors = {
             content : `[data-content]`
