@@ -106,8 +106,8 @@ class pokemonAPICatalog {
         const searchValue = this.search.value.toLowerCase();
 
         searchValue.length
-        ? this.loadButton.classList.add(`hidden`)
-        : this.loadButton.classList.remove(`hidden`);
+        ? this.loadButton.classList.remove(`hidden`)
+        : this.loadButton.classList.add(`hidden`);
 
         document.querySelectorAll(this.UiSelectors.card).forEach((el) => {
             return el.classList.remove('hidden');
