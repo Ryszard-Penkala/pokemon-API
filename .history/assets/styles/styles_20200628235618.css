@@ -72,9 +72,8 @@
 }
 
 .section-main__info{
-  margin: auto;
+  margin: 0 auto;
   font-size: 26px;
-  color: #000;
 }
 .section-main__card{
     width: 250px;

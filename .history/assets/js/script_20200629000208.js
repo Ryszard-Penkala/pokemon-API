@@ -89,11 +89,11 @@ class pokemonAPICatalog {
                         <span class="card__supertype card--bold">Supertype : </span>
                         ${card.supertype}
                     </div>
-                    <div class="card__subtype ${card.subtype ? '' : ` hidden`}">
+                    <div class="card__subtype">
                         <span class="card__subtype card--bold">Subtype : </span>
                         ${card.subtype}
                     </div>
-                    <div class="card__rarity" ${card.rarity ? '' : ' hidden'}>
+                    <div class="card__rarity">
                         <span class="card__rarity card--bold">Rarity : </span>
                         ${card.rarity}
                     </div>
@@ -109,11 +109,13 @@ class pokemonAPICatalog {
             return el.classList.remove('hidden');
         });
 
+
+
         const filteredCards = this.cards.filter(
             ({ name }) => !name.toLowerCase().includes(searchValue),
         );
 
-        filteredCards.length === this.cards.length ? this.info.classList.remove(`hidden`) : this.info.classList.add(`hidden`);
+        filteredCards.length === this.cards.length ? this.info.classList.remove(`hidden`);
 
         filteredCards.forEach(({ id }) => {
             document.getElementById(id).classList.add(`hidden`)

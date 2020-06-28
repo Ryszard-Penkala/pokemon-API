@@ -10,7 +10,6 @@ class pokemonAPICatalog {
         this.loader = null;
         this.search = null;
         this.card = null;
-        this.info = null;
 
         this.API = "https://api.pokemontcg.io";
         this.API_VERSION= "v1";
@@ -26,7 +25,6 @@ class pokemonAPICatalog {
             loader : `[data-loader]`,
             search : `search`,
             card : `[data-card]`,
-            info : `[data-info]`,
         }
     }
     init(){
@@ -34,7 +32,6 @@ class pokemonAPICatalog {
         this.loadButton = document.querySelector(this.UiSelectors.loadButton);
         this.loader = document.querySelector(this.UiSelectors.loader);
         this.search = document.getElementById(this.UiSelectors.search);
-        this.info = document.querySelector(this.UiSelectors.info);
         this.pullCards(this.API_ENDPOINT);
         this.loadButton.addEventListener("click",()=>{
             this.updateAPI_ENDPOINT();
@@ -89,11 +86,11 @@ class pokemonAPICatalog {
                         <span class="card__supertype card--bold">Supertype : </span>
                         ${card.supertype}
                     </div>
-                    <div class="card__subtype ${card.subtype ? '' : ` hidden`}">
+                    <div class="card__subtype">
                         <span class="card__subtype card--bold">Subtype : </span>
                         ${card.subtype}
                     </div>
-                    <div class="card__rarity" ${card.rarity ? '' : ' hidden'}>
+                    <div class="card__rarity">
                         <span class="card__rarity card--bold">Rarity : </span>
                         ${card.rarity}
                     </div>
@@ -109,11 +106,13 @@ class pokemonAPICatalog {
             return el.classList.remove('hidden');
         });
 
+
+
         const filteredCards = this.cards.filter(
             ({ name }) => !name.toLowerCase().includes(searchValue),
         );
 
-        filteredCards.length === this.cards.length ? this.info.classList.remove(`hidden`) : this.info.classList.add(`hidden`);
+        
 
         filteredCards.forEach(({ id }) => {
             document.getElementById(id).classList.add(`hidden`)

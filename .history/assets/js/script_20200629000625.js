@@ -89,11 +89,11 @@ class pokemonAPICatalog {
                         <span class="card__supertype card--bold">Supertype : </span>
                         ${card.supertype}
                     </div>
-                    <div class="card__subtype ${card.subtype ? '' : ` hidden`}">
+                    <div class="card__subtype">
                         <span class="card__subtype card--bold">Subtype : </span>
                         ${card.subtype}
                     </div>
-                    <div class="card__rarity" ${card.rarity ? '' : ' hidden'}>
+                    <div class="card__rarity" ${card.rarity ? '' : ` hidden`}>
                         <span class="card__rarity card--bold">Rarity : </span>
                         ${card.rarity}
                     </div>
