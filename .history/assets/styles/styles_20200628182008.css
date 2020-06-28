@@ -35,15 +35,13 @@
 .header-main__searching{
   border: none;
   width: 300px;
-  font-size: 20px;
+  font-size: 16px;
   border-bottom: 3px solid red;
-  font-family: inherit;
-
 }
 
 .header-main__searching::placeholder{
   color: #000;
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
 .header-main__searching:focus{
@@ -52,17 +50,7 @@
 }
 
 .header-main__search-label{
-  padding-left: 20px;
-  margin-top: 5px;
-  font-size: 20px;
-  width: 300px;
-  transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
-}
-
-.header-main__searching:placeholder-shown + .header-main__search-label{
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-40px);
+  margin-left: 20px;
 }
 
 .section-main{

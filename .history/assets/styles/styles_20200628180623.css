@@ -13,10 +13,6 @@
     margin: 0 auto;
 }
 
-.pokemon-app__section{
-  padding-top: 20px;
-}
-
 .header-main{
     display: flex;
     justify-content: space-between;
@@ -34,35 +30,12 @@
 
 .header-main__searching{
   border: none;
-  width: 300px;
-  font-size: 20px;
-  border-bottom: 3px solid red;
-  font-family: inherit;
-
+  width: 3000px;
+  font-size: 24px;
 }
 
-.header-main__searching::placeholder{
-  color: #000;
-  padding-left: 20px;
-}
-
-.header-main__searching:focus{
+.header-main__searching:active{
   outline: none;
-  border-bottom: 3px solid yellow;
-}
-
-.header-main__search-label{
-  padding-left: 20px;
-  margin-top: 5px;
-  font-size: 20px;
-  width: 300px;
-  transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
-}
-
-.header-main__searching:placeholder-shown + .header-main__search-label{
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-40px);
 }
 
 .section-main{

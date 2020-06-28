@@ -56,7 +56,7 @@
   margin-top: 5px;
   font-size: 20px;
   width: 300px;
-  transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+  transition: opacity 3s, visibility 3s, transform 3s;
 }
 
 .header-main__searching:placeholder-shown + .header-main__search-label{
