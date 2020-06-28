@@ -14,37 +14,24 @@ class pokemonAPICatalog {
 
         this.UiSelectors = {
             content : `[data-content]`,
-            loadButton : `[data-load-button]`,
             loader : `[data-loader]`
         }
     }
     init(){
         this.catalog = document.querySelector(this.UiSelectors.content);
-        this.loadButton = document.querySelector(this.UiSelectors.loadButton);
         this.loader = document.querySelector(this.UiSelectors.loader);
-        this.pullCards(this.API_ENDPOINT);
-        this.loadButton.addEventListener("click",()=>{
-            this.updateAPI_ENDPOINT();
-            this.pullCards(this.API_ENDPOINT);
+        this.pullCards();
+        this.loader.addEventListener("click",()=>{
+            this.page = this.page + 1;
+            this.pullCards();
         })
+
     }
 
-    updateAPI_ENDPOINT(){
-        this.page += 1;
-        this.API_ENDPOINT = `${this.API}/${this.API_VERSION}/${this.API_RESOURCE}?${this.API_PAGE_SIZE}&${this.API_PAGE}${this.page}`;
-    }
-
-    updateClassList(){
-        this.loadButton.classList.toggle('hidden');
-        this.loader.classList.toggle('hidden');
-    }
-
-    async pullCards(url){
-        this.updateClassList();
-        const { cards } = await this.fetchData(url)
+    async pullCards(){
+        const { cards } = await this.fetchData(this.API_ENDPOINT)
         this.cards = [...cards];
         this.addCards(this.cards);
-        this.updateClassList();
     }
 
 

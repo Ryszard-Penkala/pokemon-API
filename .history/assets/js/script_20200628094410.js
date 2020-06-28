@@ -24,9 +24,14 @@ class pokemonAPICatalog {
         this.loader = document.querySelector(this.UiSelectors.loader);
         this.pullCards(this.API_ENDPOINT);
         this.loadButton.addEventListener("click",()=>{
+            this.loadButton.classList.toggle('hidden');
+            this.loader.classList.toggle('hidden');
             this.updateAPI_ENDPOINT();
             this.pullCards(this.API_ENDPOINT);
+            this.loadButton.classList.toggle('hidden');
+            this.loader.classList.toggle('hidden');
         })
+
     }
 
     updateAPI_ENDPOINT(){
@@ -34,17 +39,10 @@ class pokemonAPICatalog {
         this.API_ENDPOINT = `${this.API}/${this.API_VERSION}/${this.API_RESOURCE}?${this.API_PAGE_SIZE}&${this.API_PAGE}${this.page}`;
     }
 
-    updateClassList(){
-        this.loadButton.classList.toggle('hidden');
-        this.loader.classList.toggle('hidden');
-    }
-
     async pullCards(url){
-        this.updateClassList();
         const { cards } = await this.fetchData(url)
         this.cards = [...cards];
         this.addCards(this.cards);
-        this.updateClassList();
     }
 
 

@@ -69,6 +69,13 @@
   border: 5px solid black;
 }
 
+.hidden{
+  display: none;
+}
+
+
+
+
 .footer-main__loader {
     display: block;
     position: relative;
@@ -105,9 +112,4 @@
       top: 24px;
       height: 3rem;
     }
-  }
-
-.hidden{
-    display: none;
-    background-color: green;
   }

@@ -27,6 +27,7 @@ class pokemonAPICatalog {
             this.updateAPI_ENDPOINT();
             this.pullCards(this.API_ENDPOINT);
         })
+
     }
 
     updateAPI_ENDPOINT(){
@@ -34,7 +35,7 @@ class pokemonAPICatalog {
         this.API_ENDPOINT = `${this.API}/${this.API_VERSION}/${this.API_RESOURCE}?${this.API_PAGE_SIZE}&${this.API_PAGE}${this.page}`;
     }
 
-    updateClassList(){
+    updateClassList{
         this.loadButton.classList.toggle('hidden');
         this.loader.classList.toggle('hidden');
     }
