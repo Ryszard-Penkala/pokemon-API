@@ -53,7 +53,7 @@ class pokemonAPICatalog {
     async pullCards(url){
         this.updateClassList();
         const { cards } = await this.fetchData(url)
-        this.cards.push(...cards);
+        this.cards.push([...cards]);
         this.newCards = [...cards];
         this.addCards(this.newCards);
         this.updateClassList();
@@ -105,8 +105,6 @@ class pokemonAPICatalog {
         document.querySelectorAll(this.UiSelectors.card).forEach((el) => {
             return el.classList.remove('hidden');
         });
-
-
 
         const filteredCards = this.cards.filter(
             ({ name }) => !name.toLowerCase().includes(searchValue),

@@ -2,7 +2,6 @@ class pokemonAPICatalog {
     constructor() {
         this.catalog = null;
         this.cards = [];
-        this.newCards = [];
         this.page = 1;
 
         this.content = null;
@@ -24,7 +23,7 @@ class pokemonAPICatalog {
             loadButton : `[data-load-button]`,
             loader : `[data-loader]`,
             search : `search`,
-            card : `[data-card]`,
+            card : `[data-card]`
         }
     }
     init(){
@@ -37,7 +36,7 @@ class pokemonAPICatalog {
             this.updateAPI_ENDPOINT();
             this.pullCards(this.API_ENDPOINT);
         });
-        this.search.addEventListener("keyup", () => this.searchCards());
+        this.search.addEventListener("keyup", this.searchCards());
     }
 
     updateAPI_ENDPOINT(){
@@ -53,9 +52,8 @@ class pokemonAPICatalog {
     async pullCards(url){
         this.updateClassList();
         const { cards } = await this.fetchData(url)
-        this.cards.push(...cards);
-        this.newCards = [...cards];
-        this.addCards(this.newCards);
+        this.cards = [...cards];
+        this.addCards(this.cards);
         this.updateClassList();
     }
 
@@ -68,7 +66,7 @@ class pokemonAPICatalog {
     }
 
     addCards(cards){
-        this.newCards.map(card => {
+        this.cards.map(card => {
             this.catalog.insertAdjacentHTML("beforeend", this.drawCard(card))
         });
     }
@@ -101,12 +99,7 @@ class pokemonAPICatalog {
 
     searchCards(){
         const searchValue = this.search.value.toLowerCase();
-
-        document.querySelectorAll(this.UiSelectors.card).forEach((el) => {
-            return el.classList.remove('hidden');
-        });
-
-
+        console.log("elo")
 
         const filteredCards = this.cards.filter(
             ({ name }) => !name.toLowerCase().includes(searchValue),

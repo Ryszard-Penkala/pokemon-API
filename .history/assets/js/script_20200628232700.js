@@ -2,7 +2,6 @@ class pokemonAPICatalog {
     constructor() {
         this.catalog = null;
         this.cards = [];
-        this.newCards = [];
         this.page = 1;
 
         this.content = null;
@@ -53,9 +52,8 @@ class pokemonAPICatalog {
     async pullCards(url){
         this.updateClassList();
         const { cards } = await this.fetchData(url)
-        this.cards.push(...cards);
-        this.newCards = [...cards];
-        this.addCards(this.newCards);
+        this.cards = [...cards];
+        this.addCards(this.cards);
         this.updateClassList();
     }
 
@@ -68,7 +66,7 @@ class pokemonAPICatalog {
     }
 
     addCards(cards){
-        this.newCards.map(card => {
+        this.cards.map(card => {
             this.catalog.insertAdjacentHTML("beforeend", this.drawCard(card))
         });
     }
@@ -102,13 +100,11 @@ class pokemonAPICatalog {
     searchCards(){
         const searchValue = this.search.value.toLowerCase();
 
-        document.querySelectorAll(this.UiSelectors.card).forEach((el) => {
-            return el.classList.remove('hidden');
-        });
+        document.querySelectorAll(this.UiSelectors.card).forEach((el)=> el.classList.remove('hidden'));
 
-
-
-        const filteredCards = this.cards.filter(
+        const allCards = document.querySelectorAll(this.UiSelectors.card);
+        console.log(allCards)
+        const filteredCards = this.allCards.filter(
             ({ name }) => !name.toLowerCase().includes(searchValue),
         );
 

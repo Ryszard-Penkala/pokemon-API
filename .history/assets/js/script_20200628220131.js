@@ -2,14 +2,11 @@ class pokemonAPICatalog {
     constructor() {
         this.catalog = null;
         this.cards = [];
-        this.newCards = [];
         this.page = 1;
 
         this.content = null;
         this.loadButton = null;
         this.loader = null;
-        this.search = null;
-        this.card = null;
 
         this.API = "https://api.pokemontcg.io";
         this.API_VERSION= "v1";
@@ -23,21 +20,18 @@ class pokemonAPICatalog {
             content : `[data-content]`,
             loadButton : `[data-load-button]`,
             loader : `[data-loader]`,
-            search : `search`,
-            card : `[data-card]`,
+            search : `search`
         }
     }
     init(){
         this.catalog = document.querySelector(this.UiSelectors.content);
         this.loadButton = document.querySelector(this.UiSelectors.loadButton);
         this.loader = document.querySelector(this.UiSelectors.loader);
-        this.search = document.getElementById(this.UiSelectors.search);
         this.pullCards(this.API_ENDPOINT);
         this.loadButton.addEventListener("click",()=>{
             this.updateAPI_ENDPOINT();
             this.pullCards(this.API_ENDPOINT);
-        });
-        this.search.addEventListener("keyup", () => this.searchCards());
+        })
     }
 
     updateAPI_ENDPOINT(){
@@ -53,9 +47,8 @@ class pokemonAPICatalog {
     async pullCards(url){
         this.updateClassList();
         const { cards } = await this.fetchData(url)
-        this.cards.push(...cards);
-        this.newCards = [...cards];
-        this.addCards(this.newCards);
+        this.cards = [...cards];
+        this.addCards(this.cards);
         this.updateClassList();
     }
 
@@ -68,14 +61,14 @@ class pokemonAPICatalog {
     }
 
     addCards(cards){
-        this.newCards.map(card => {
+        this.cards.map(card => {
             this.catalog.insertAdjacentHTML("beforeend", this.drawCard(card))
         });
     }
 
     drawCard(card){
         return(
-            `<span class="section-main__card" id=${card.id} data-card>
+            `<span class="section-main__card">
                 <header class="card__header">
                     <span class="card__name card--bold">${card.name}</span>
                     <span class="card__id">Nr: ${card.number}</span>
@@ -97,23 +90,5 @@ class pokemonAPICatalog {
                 </footer>
             </span>`
         )
-    }
-
-    searchCards(){
-        const searchValue = this.search.value.toLowerCase();
-
-        document.querySelectorAll(this.UiSelectors.card).forEach((el) => {
-            return el.classList.remove('hidden');
-        });
-
-
-
-        const filteredCards = this.cards.filter(
-            ({ name }) => !name.toLowerCase().includes(searchValue),
-        );
-
-        filteredCards.forEach(({ id }) => {
-            document.getElementById(id).classList.add(`hidden`)
-        });
     }
 }

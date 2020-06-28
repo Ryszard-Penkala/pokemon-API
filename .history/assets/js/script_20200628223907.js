@@ -2,13 +2,11 @@ class pokemonAPICatalog {
     constructor() {
         this.catalog = null;
         this.cards = [];
-        this.newCards = [];
         this.page = 1;
 
         this.content = null;
         this.loadButton = null;
         this.loader = null;
-        this.search = null;
         this.card = null;
 
         this.API = "https://api.pokemontcg.io";
@@ -24,7 +22,7 @@ class pokemonAPICatalog {
             loadButton : `[data-load-button]`,
             loader : `[data-loader]`,
             search : `search`,
-            card : `[data-card]`,
+            card : `[data-card]`
         }
     }
     init(){
@@ -37,7 +35,7 @@ class pokemonAPICatalog {
             this.updateAPI_ENDPOINT();
             this.pullCards(this.API_ENDPOINT);
         });
-        this.search.addEventListener("keyup", () => this.searchCards());
+        this.search.addEventListener("keyup", this.searchCards());
     }
 
     updateAPI_ENDPOINT(){
@@ -53,9 +51,8 @@ class pokemonAPICatalog {
     async pullCards(url){
         this.updateClassList();
         const { cards } = await this.fetchData(url)
-        this.cards.push(...cards);
-        this.newCards = [...cards];
-        this.addCards(this.newCards);
+        this.cards = [...cards];
+        this.addCards(this.cards);
         this.updateClassList();
     }
 
@@ -68,14 +65,14 @@ class pokemonAPICatalog {
     }
 
     addCards(cards){
-        this.newCards.map(card => {
+        this.cards.map(card => {
             this.catalog.insertAdjacentHTML("beforeend", this.drawCard(card))
         });
     }
 
     drawCard(card){
         return(
-            `<span class="section-main__card" id=${card.id} data-card>
+            `<span class="section-main__card" id=${id} data-card>
                 <header class="card__header">
                     <span class="card__name card--bold">${card.name}</span>
                     <span class="card__id">Nr: ${card.number}</span>
@@ -102,17 +99,11 @@ class pokemonAPICatalog {
     searchCards(){
         const searchValue = this.search.value.toLowerCase();
 
-        document.querySelectorAll(this.UiSelectors.card).forEach((el) => {
-            return el.classList.remove('hidden');
-        });
-
-
-
-        const filteredCards = this.cards.filter(
+        const filteredCard = document.querySelectorAll(this.UiSelectors.card).filter(
             ({ name }) => !name.toLowerCase().includes(searchValue),
         );
 
-        filteredCards.forEach(({ id }) => {
+        filteredCard.forEach(({ id }) => {
             document.getElementById(id).classList.add(`hidden`)
         });
     }
