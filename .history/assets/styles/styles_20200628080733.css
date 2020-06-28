@@ -76,7 +76,7 @@
     display: block;
     position: relative;
     width: 80px;
-    height: 5rem;
+    height: 80px;
     margin: 5rem auto;
   }
   .footer-main__loader div {
@@ -102,10 +102,10 @@
   @keyframes footer-main__loader {
     0% {
       top: 8px;
-      height: 5rem;
+      height: 64px;
     }
     50%, 100% {
       top: 24px;
-      height: 3rem;
+      height: 32px;
     }
   }
