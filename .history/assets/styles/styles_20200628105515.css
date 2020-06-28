@@ -34,7 +34,7 @@
 }
 .section-main__card{
     width: 250px;
-    margin: 0 auto;
+    background-color: greenyellow;
 }
 .card__header{
     display: flex;

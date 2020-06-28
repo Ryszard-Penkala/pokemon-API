@@ -13,6 +13,11 @@
     margin: 0 auto;
 }
 
+.pokemon-app__section{
+  margin: 0 auto;
+  background-color: greenyellow;
+}
+
 .header-main{
     display: flex;
     justify-content: space-between;
@@ -34,7 +39,6 @@
 }
 .section-main__card{
     width: 250px;
-    margin: 0 auto;
 }
 .card__header{
     display: flex;
