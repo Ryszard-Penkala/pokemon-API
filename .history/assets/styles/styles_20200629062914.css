@@ -51,7 +51,7 @@
 }
 
 .header-main__searching::placeholder{
-  color: var(--tertiary-color);
+  color: #000;
   padding-left: 20px;
 }
 
@@ -166,4 +166,5 @@
 
 .hidden{
     display: none;
+    background-color: green;
   }

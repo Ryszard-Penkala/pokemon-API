@@ -51,7 +51,7 @@
 }
 
 .header-main__searching::placeholder{
-  color: var(--tertiary-color);
+  color: #000;
   padding-left: 20px;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .footer-main__load-button:hover{
-  color: var(--secondary-color-light);
+  color: var(--secondary-color);
   background-color: var(--primary-color);
   border: 5px solid var(--primary-color);
 }
@@ -166,4 +166,5 @@
 
 .hidden{
     display: none;
+    background-color: green;
   }
