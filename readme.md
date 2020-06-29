@@ -1,1 +1,3 @@
-playing with poekmon API
+http://htmlpreview.github.io/?https://github.com/Ryszard-Penkala/pokemon-API/blob/master/index.html
+
+pokemon API
